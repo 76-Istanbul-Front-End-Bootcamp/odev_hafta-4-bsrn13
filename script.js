@@ -2,6 +2,7 @@ const data = {
   USD: {EUR: 0.82, GBP: 0.74},
   EUR: {USD: 1.23, GBP: 0.91},
   GBP: {USD: 1.35, EUR: 1.10},
+  TR:  {USD: 0.13, EUR: 0.11, GBP: 0.097}
 };
 
 const currencyKeys = Object.keys(data);
@@ -37,13 +38,34 @@ createCurrencyElements(currencyKeys, parentToEl, toInputName);
 
 
 const calculateButton = document.querySelector("#calculate-button");
+
 calculateButton.addEventListener("click", function(){
-   // kimden ceviriyourz
+
+  const checkFrom = document.querySelector("input[name='currency_from']:checked");
+  const checkTo = document.querySelector("input[name='currency_to']:checked");
+  
+  if (!checkFrom ||!checkTo) {
+    alert("Please select both choices.")
+    return;
+  }
+   
+    // kimden ceviriyourz
    const fromTarget = document.querySelector("input[name='currency_from']:checked").value;
    // kime ceviriyoruz
    const toTarget   = document.querySelector("input[name='currency_to']:checked").value;
    // amountu alalim
-   const amount     = document.querySelector("input[name='amount']").value;
+
+   if (fromTarget === toTarget) {
+     alert("Please select different choices.")
+     return;
+   }
+
+   const amount = document.querySelector("input[name='amount']").value;
+
+   if (isNaN(amount)) {
+     alert("Amount should be a number.")
+     return;
+   }
 
    const currentCurrencyObject = data[fromTarget];
    const resultForOne = currentCurrencyObject[toTarget];

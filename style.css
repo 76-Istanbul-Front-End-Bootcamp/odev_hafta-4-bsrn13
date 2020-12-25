@@ -49,13 +49,17 @@ table {
 
 /* OUR CSS */
 body {
-    background: #e6e6e6;
+    background-image: linear-gradient(#f0abba,  #69cfe0 );
 }
 
 header {
+    color: #2c2b2b;
     text-align: center;
-    background: #c5a880;
     padding: 15px 0;
+    border-radius: 25px;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 35px;
 }
 
 .container {
@@ -78,14 +82,17 @@ header {
 .currency-calculate button {
     width: 100%;
     padding: 10px;
-    background: #583d72;
-    color: #fff;
+    background: #69cfe0;
+    color: rgb(24, 25, 26);
     font-weight: bold;
-    font-size: 18px;
+    font-size: 20px;
+    font-style: italic;
+    border-radius: 25px;
 }
 
 .currecy-result {
-    font-size: 32px;
+    font-size: 25px;
     text-align: center;
     font-weight: bold;
+    font-style: italic;
 }
