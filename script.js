@@ -62,7 +62,7 @@ calculateButton.addEventListener("click", function(){
 
    const amount = document.querySelector("input[name='amount']").value;
 
-   if (isNaN(amount)) {
+   if (isNaN(Number(amount)) || amount === "") {
      alert("Amount should be a number.")
      return;
    }
